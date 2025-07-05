@@ -15,12 +15,14 @@ def abrir_sistema():
     pyautogui.PAUSE=1 # DETERMINA UMA PAUSE DE 1 SEGUNDO PARA CDA COMANDO +- COMO O SLEEP()
     pyautogui.press('win') # PRESSIONAR A TECLA WINDOWS
     pyautogui.write('chrome') # DIGITAR CHROME
+    pyautogui.PAUSE=1
     pyautogui.press('enter') # PRESSIONAR A TECLA ENTER
+    pyautogui.PAUSE=1
     pyautogui.write('https://dlp.hashtagtreinamentos.com/python/intensivao/login')
-    pyautogui.press('enter') # PRESSIONAR ENTERwww.globo.com
+    pyautogui.press('enter') # PRESSIONAR ENTER
 
 
-# 2° PASSO - FAZER O LOGINlOGITECH  mOUSE   1   25.95   6.5NAN
+# 2° PASSO - FAZER O LOGIN
 def fazer_login():
     sleep(3) # AQUI EU DETERMINEI QUE ELE ESPERASSE 3 SEGUNDOS POR CAUSA DA INTERNET POR GARANTIA 
     pyautogui.click(x=572, y=557) # POSIÇÃO DO MOUSE QUE DESCOBRI EM OUTRA ABA NO VS CODE COM O COMANDO .POSITION()
@@ -33,11 +35,11 @@ def fazer_login():
 
 # 3° PASSO  - IMPORTAR A BASE DE DADOS DOS PRODUTOS
 def importar_tabela(): 
-    tabela = pandas.read_csv('C:\\Users\\yuri2\\OneDrive\\Área de Trabalho\\1 Semestre 2025 - Blusoft\\JORNADA PYTHON - LIRA\\PYTHON POWER UP - AUTOMAÇÃO\\produtos.csv', delimiter=',', encoding='latin-1') # .read PARA ESCOLHER O TIPO DE DOCUMENTO A SER IMPORTADO
+    tabela = pandas.read_csv('produtos.csv', delimiter=',', encoding='latin-1') # .read PARA ESCOLHER O TIPO DE DOCUMENTO A SER IMPORTADO
     print(tabela) # TEM QUE DEIXAR COMO VARIÁVEL
     return tabela
 
-# 4° PASSO - CADASTRAR PRODUTO1
+# 4° PASSO - CADASTRAR PRODUTO
 def cadastrar_produtos(tabela):
     sleep(2)
     for linha in tabela.index: # 5° PASSO - REPETIR O 4° PASSO ATÉ ACABAR
@@ -73,4 +75,4 @@ if __name__ == "__main__":
     abrir_sistema()
     fazer_login()
     tabela = importar_tabela()  
-    cadastrar_produtos(tabela)      
+    cadastrar_produtos(tabela)   
